@@ -7,6 +7,13 @@ from main import app
 
 class TestCovidEndpoints(TestCase):
 
+    def test_root_endpoint_works(self):
+        client = TestClient(app)
+
+        response = client.get('/')
+
+        self.assertEqual(response.status_code, 200)
+
     def test_list_endpoint_works(self):
         client = TestClient(app)
 
@@ -20,5 +27,3 @@ class TestCovidEndpoints(TestCase):
         response = client.get('/tests1')
 
         self.assertEqual(response.status_code, 404)
-
-
