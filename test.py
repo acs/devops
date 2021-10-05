@@ -20,7 +20,7 @@ class TestCovidEndpoints(TestCase):
 
         response = client.get('/tests')
 
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
 
     def test_not_exists_endpoint_is_404(self):
         client = TestClient(app)
