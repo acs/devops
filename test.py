@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 
 from fastapi.testclient import TestClient
@@ -19,7 +20,7 @@ class TestCovidEndpoints(TestCase):
 
         response = client.get('/tests')
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 201)
 
     def test_not_exists_endpoint_is_404(self):
         client = TestClient(app)
@@ -27,3 +28,9 @@ class TestCovidEndpoints(TestCase):
         response = client.get('/tests1')
 
         self.assertEqual(response.status_code, 404)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
