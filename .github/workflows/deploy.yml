@@ -1,0 +1,15 @@
+name: Execute Ansible scripts
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: pip install -r requirements.txt
+      - run: python -m unittest
+      - run: pip install ansible
