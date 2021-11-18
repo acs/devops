@@ -1,5 +1,0 @@
-- hosts: cluster
-  tasks:
-
-    - name: determine swarm status
-      shell: pwd
