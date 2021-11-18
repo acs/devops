@@ -1,0 +1,17 @@
+name: Execute Ansible scripts
+on:
+  pull_request:
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: id
+      - run: pwd
+      - run: echo ~
+      # - run: .github/scripts/check-user-ssh.sh
+      - name: Deploy
+        env:
+          VAULT_PASS: ${{ secrets.VAULT_PASS }}
+        run: .github/scripts/deploy.sh
