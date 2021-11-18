@@ -12,5 +12,5 @@ variable "cluster_size" {
   type = number
   description = "Number of nodes in the cluster"
   # default = 3
-  default = 5
+  default = 1
 }
